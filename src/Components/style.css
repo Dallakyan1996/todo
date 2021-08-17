@@ -95,3 +95,11 @@
     font-weight: 100 !important;
     margin-bottom: 0 !important;
 }
+
+.editBtnDone{
+    color: green
+}
+
+.editBtnPen{
+    color: rgb(32, 93, 206)
+}

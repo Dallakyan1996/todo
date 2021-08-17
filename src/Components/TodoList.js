@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import "./style.css"
 import AddTask from "./TaskInput"
-import { FaTrashAlt, FaPen } from 'react-icons/fa';
+import { FaTrashAlt, FaPen, FaCheck } from 'react-icons/fa';
 import ToDoFooter from "./ToDoFooter";
 import { useState } from "react";
 
@@ -15,7 +15,6 @@ const ToDoItem = () => {
     console.log(state)
     return (
         <>
-
             <div className="toDoDiv">TO-DO LIST</div>
             <div>
                 <AddTask />
@@ -45,9 +44,8 @@ const ToDoItem = () => {
                                     })
                                 }
                             }} />
-
                         }
-                        <button className="editBtn" onClick={() => {
+                        <button className={v.edit ? "editBtn editBtnDone" : "editBtn editBtnPen"} onClick={() => {
                             dispatch({
                                 type: "EDIT-TASK",
                                 payload: [
@@ -55,7 +53,8 @@ const ToDoItem = () => {
                                 ]
                             })
                         }
-                        } ><FaPen /></button>
+                        } >
+                            {!v.edit ? <FaPen /> : <FaCheck />}</button>
                         <button className="deleteBtn" onClick={() => {
                             setEditTask(false)
                             dispatch({
