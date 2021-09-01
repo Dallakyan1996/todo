@@ -12,7 +12,7 @@ const ToDoItem = () => {
     let quantityCompletedTasks = completedTasks.length;
     let [editTask, setEditTask] = useState(false)
     const dispatch = useDispatch();
-    console.log(state)
+    // console.log(state)
     return (
         <>
             <div className="toDoDiv">TO-DO LIST</div>
