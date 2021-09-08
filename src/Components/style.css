@@ -40,11 +40,15 @@
 
 .taskText {
     flex: 2;
+    font-style: italic;
+    font-weight: 900;
+    color: #3a902beb;
+    font-size: 23px;
     border-width: 1px;
     width: 50px;
     margin-right: 15px;
     margin-left: 15px;
-    font-weight: 100 !important;
+    font-weight: 400 !important;
     margin-bottom: 0 !important;
     cursor: pointer;
 }
@@ -88,18 +92,26 @@
 
 .editTextInput {
     flex: 2 1;
-    border-width: 1px;
-    width: 50px;
-    margin-right: 15px;
-    margin-left: 15px;
-    font-weight: 100 !important;
-    margin-bottom: 0 !important;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    margin-left: 7px;
+    height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border-color: #0064ffcc;
 }
 
-.editBtnDone{
+.editTextInput:focus {
+    outline: none;
+}
+
+.editBtnDone {
     color: green
 }
 
-.editBtnPen{
+.editBtnPen {
     color: rgb(32, 93, 206)
 }

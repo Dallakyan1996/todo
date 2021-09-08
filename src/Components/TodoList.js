@@ -3,7 +3,7 @@ import "./style.css"
 import AddTask from "./TaskInput"
 import { FaTrashAlt, FaPen, FaCheck } from 'react-icons/fa';
 import ToDoFooter from "./ToDoFooter";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ToDoItem = () => {
     let state = useSelector((state) => state)
@@ -13,6 +13,22 @@ const ToDoItem = () => {
     let [editTask, setEditTask] = useState(false)
     const dispatch = useDispatch();
     // console.log(state)
+
+    let headers = {
+        'Access-Control-Allow-Credentials': 'true',
+        'Access-Control-Allow-Origin': "*",
+
+    }
+    useEffect(() => {
+        fetch('http://localhost:3000/list-movies', {
+            // mode: 'no-cors',
+            method: "GET",
+            headers: headers
+        })
+            .then(response => response.json())
+            .then(data => console.log(data));
+    }, [])
+    console.log(state)
     return (
         <>
             <div className="toDoDiv">TO-DO LIST</div>

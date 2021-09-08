@@ -5,6 +5,19 @@ const AddTask = () => {
     const [text, setText] = useState("")
     let state = useSelector((state) => state)
     const dispatch = useDispatch();
+
+    const postTask = (task) => {
+        fetch('http://localhost:3000/task', {
+            method: "post",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                task: task
+            })
+        })
+    }
+
     return <div className="textInputDiv">
         <Formik initialValues={{ id: "" }}>
             <Form className="form" >
@@ -12,6 +25,7 @@ const AddTask = () => {
                     setText(e.target.value)
                 }} />
                 <button className="addBtn" onClick={() => {
+                    postTask(text)
                     if (text) {
                         dispatch({
                             type: 'ADD-TASK',
