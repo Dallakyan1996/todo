@@ -1,7 +1,9 @@
 let intitialState = []
 
+
 const tasksReducer = (state = intitialState, action) => {
     switch (action.type) {
+        case "INITIAL-STATE": return state = action.payload.data
         case "ADD-TASK": return [
             ...state
         ]
