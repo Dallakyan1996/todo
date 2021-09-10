@@ -7,19 +7,18 @@ const AddTask = () => {
     let state = useSelector((state) => state)
     const dispatch = useDispatch();
 
-    const postTask = (task, id) => {
-        fetch('http://localhost:3000/task', {
+    const postTask = (task) => {
+        return fetch('http://localhost:3000/add-task', {
             method: "post",
             headers: {
                 "content-type": "application/json"
             },
             body: JSON.stringify({
-                id: id,
                 taskText: task,
                 isCompleted: false,
                 edit: false
             })
-        })
+        }).then(response => response.json());
     }
 
     return <div className="textInputDiv">
@@ -29,23 +28,25 @@ const AddTask = () => {
                     setText(e.target.value)
                 }} />
                 <button className="addBtn" onClick={() => {
-                    let id = Math.random()
                     if (text) {
-                        postTask(text, id)
-                    }
-                    if (text) {
-                        dispatch({
-                            type: 'ADD-TASK',
-                            payload: [
-                                ...state,
-                                state.push({
-                                    id: id,
-                                    taskText: text,
-                                    isCompleted: false,
-                                    edit: false
-                                })
-                            ]
-                        })
+                        postTask(text)
+                            .then((res) => {
+                                console.log(res);
+                                    dispatch({
+                                        type: 'ADD-TASK',
+                                        payload: [
+                                            ...state,
+                                            state.push({
+                                                _id: res,
+                                                taskText: text,
+                                                isCompleted: false,
+                                                edit: false
+                                            })
+                                        ]
+                                    })
+                                    console.log(state)
+                            }
+                            )
                     }
                     setText("")
                 }}>Add Task</button>

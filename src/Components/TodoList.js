@@ -43,12 +43,15 @@ const ToDoItem = () => {
         })
             .then(response => response.json())
             .then(data => {
+
+                // a.push(data)
                 dispatch({
                     type: 'INITIAL-STATE',
                     payload: {
                         data: data
                     }
                 })
+                // console.log(state)
             });
     }, [])
     return (
@@ -61,8 +64,8 @@ const ToDoItem = () => {
                 {
 
                     <div>
-                        {state.map((v, i) => <div key={v.id} className="tasksDiv">
-                            <input id={v.id} className="checkBoxInput" defaultChecked = {v.isCompleted ? true : false} type="checkBox" onChange={(e) => {
+                        {state.map((v, i) => <div key={v._id} className="tasksDiv">
+                            <input id={v.id} className="checkBoxInput" defaultChecked={v.isCompleted ? true : false} type="checkBox" onChange={(e) => {
                                 postComplete(v.id)
                                 dispatch(
                                     {
