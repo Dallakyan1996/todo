@@ -1,25 +1,14 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Formik, Form } from "formik"
+import { apiObject } from "../service/API"
 
 const AddTask = () => {
     const [text, setText] = useState("")
     let state = useSelector((state) => state)
     const dispatch = useDispatch();
 
-    const postTask = (task) => {
-        return fetch('http://localhost:3000/add-task', {
-            method: "post",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify({
-                taskText: task,
-                isCompleted: false,
-                edit: false
-            })
-        }).then(response => response.json());
-    }
+    const postTask = apiObject.postTask
 
     return <div className="textInputDiv">
         <Formik initialValues={{ id: "" }}>
@@ -31,20 +20,18 @@ const AddTask = () => {
                     if (text) {
                         postTask(text)
                             .then((res) => {
-                                console.log(res);
-                                    dispatch({
-                                        type: 'ADD-TASK',
-                                        payload: [
-                                            ...state,
-                                            state.push({
-                                                _id: res,
-                                                taskText: text,
-                                                isCompleted: false,
-                                                edit: false
-                                            })
-                                        ]
-                                    })
-                                    console.log(state)
+                                dispatch({
+                                    type: 'ADD-TASK',
+                                    payload: [
+                                        ...state,
+                                        state.push({
+                                            _id: res,
+                                            taskText: text,
+                                            isCompleted: false,
+                                            edit: false
+                                        })
+                                    ]
+                                })
                             }
                             )
                     }
