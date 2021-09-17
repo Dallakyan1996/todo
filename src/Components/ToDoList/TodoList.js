@@ -1,14 +1,20 @@
 import { useDispatch, useSelector } from "react-redux"
-import "./style.css"
-import AddTask from "./TaskInput"
+import "../style/style.css"
+import AddTask from "../TaskInput/TaskInput"
 import { FaTrashAlt, FaPen, FaCheck } from 'react-icons/fa';
-import ToDoFooter from "./ToDoFooter";
-import { useState, useEffect } from "react";
-import { apiObject } from "../service/API";
+import ToDoFooter from "../ToDoFooter/ToDoFooter";
+import { useEffect, useState } from "react";
+import { apiObject } from "../../service/API";
+import { Link } from "@material-ui/core";
+import { history } from "../../helpers/history";
 
-const ToDoItem = () => {
+const ToDoApp = () => {
+    const logout = () => {
+        apiObject.logout();
+        history.push('/login');
+    }
     let state = useSelector((state) => state)
-    let completedTasks = state.filter(i => i.isCompleted)
+    let completedTasks = state && state.filter(i => i.isCompleted)
     let quantityAllTasks = state.length;
     let quantityCompletedTasks = completedTasks.length;
     const dispatch = useDispatch();
@@ -16,6 +22,7 @@ const ToDoItem = () => {
     const postDelete = apiObject.postDelete;
     const postChecked = apiObject.postChecked;
     const postEditText = apiObject.postEditText;
+    // const [loader, setLoader] = useState(true)
 
     useEffect(() => {
         getTasks()
@@ -26,6 +33,7 @@ const ToDoItem = () => {
                         data: data
                     }
                 })
+                // setLoader(false)
             });
     }, [])
     return (
@@ -36,9 +44,9 @@ const ToDoItem = () => {
             </div>
             <div className="container">
                 {
-
+                   
                     <div>
-                        {state.map((v, i) => <div key={v._id} className="tasksDiv">
+                        {state && state.map((v, i) => <div key={v._id} className="tasksDiv">
                             <input id={v._id} className="checkBoxInput" defaultChecked={v.isCompleted ? true : false} type="checkBox" onChange={(e) => {
                                 postChecked(v._id, e.target.checked).then(
                                     dispatch(
@@ -91,9 +99,10 @@ const ToDoItem = () => {
                         <ToDoFooter quantityAllTasks={quantityAllTasks} completedTasks={completedTasks} quantityCompletedTasks={quantityCompletedTasks} />
                     </div>
                 }
+                <Link to="/login" onClick={logout}>logOut</Link>
             </div>
         </>
     )
 }
 
-export default ToDoItem;
+export default ToDoApp;

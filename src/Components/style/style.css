@@ -17,6 +17,13 @@
     height: 21px;
 }
 
+.toDoDiv {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    color: white;
+}
+
 .textInput {
     width: 45rem;
     border-width: 1px;
@@ -88,6 +95,16 @@
     font-size: 13px;
     color: white;
     /* font-weight: 600; */
+}
+
+.container {
+    text-align: center;
+    width: 50rem;
+    background-color: white;
+    margin: auto;
+    margin-top: 15px;
+    padding: 5px;
+    border:solid
 }
 
 .editTextInput {
