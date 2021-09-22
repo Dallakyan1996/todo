@@ -48,9 +48,9 @@
 .taskText {
     flex: 2;
     font-style: italic;
-    font-weight: 900;
-    color: #3a902beb;
-    font-size: 23px;
+    /* font-weight: 900; */
+    font-size: 18px;
+    color: green;
     border-width: 1px;
     width: 50px;
     margin-right: 15px;
@@ -103,8 +103,10 @@
     background-color: white;
     margin: auto;
     margin-top: 15px;
+    box-shadow: 0 15px 35px rgb(0 0 0 / 80%);
     padding: 5px;
-    border:solid
+    /* border: solid; */
+    /* background: #434446;   */
 }
 
 .editTextInput {

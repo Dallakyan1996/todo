@@ -6,7 +6,7 @@ const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('
 let acces_token = JSON.parse(localStorage.getItem('toDoCurrentUser')) && JSON.parse(localStorage.getItem('toDoCurrentUser')).token.toString()
 
 
-const postTask = (task,id) => {
+const postTask = (task, id) => {
     return fetch('http://localhost:3001/add-task', {
         method: "POST",
         headers: {
@@ -21,7 +21,9 @@ const postTask = (task,id) => {
         })
     }).then(handleResponse).then(response => {
         // console.log(acces_token)
-        JSON.stringify(response)
+        // response.json()
+        console.log(response)
+        return response
     });
 }
 
@@ -33,7 +35,7 @@ const postDelete = (_id) => {
             'Authorization': 'Bearer ' + acces_token,
         },
         body: JSON.stringify({ _id })
-    }).then(response => response.json());
+    }).then(handleResponse).then(response => response.json());
 }
 
 const postChecked = (_id, isChecked) => {
@@ -44,7 +46,7 @@ const postChecked = (_id, isChecked) => {
             'Authorization': 'Bearer ' + acces_token,
         },
         body: JSON.stringify({ _id, isChecked })
-    }).then(response => response.json());
+    }).then(handleResponse).then(response => response.json());
 }
 
 const postEditText = (_id, newText) => {
@@ -55,7 +57,7 @@ const postEditText = (_id, newText) => {
             'Authorization': 'Bearer ' + acces_token,
         },
         body: JSON.stringify({ _id, newText })
-    }).then(response => response.json());
+    }).then(handleResponse).then(response => response.json());
 }
 
 const getTasks = () => {
@@ -66,7 +68,9 @@ const getTasks = () => {
             'Access-Control-Allow-Credentials': 'true',
             'Authorization': 'Bearer ' + acces_token,
         }
-    }).then(response => response.json())
+    }).then(handleResponse).then(response => {
+        return response
+    })
 }
 
 function login(email, password) {
@@ -79,7 +83,6 @@ function login(email, password) {
     return fetch('http://localhost:3001/auth/login', requestOptions)
         .then(handleResponse)
         .then(user => {
-            console.log(user)
             localStorage.setItem('toDoCurrentUser', JSON.stringify(user));
             currentUserSubject.next(user);
             return user;
