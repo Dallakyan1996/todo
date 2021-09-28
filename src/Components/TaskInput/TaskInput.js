@@ -21,7 +21,6 @@ const AddTask = () => {
                     if (text) {
                         postTask(text, decodedID.id)
                             .then((res) => {
-
                                 dispatch({
                                     type: 'ADD-TASK',
                                     payload: [

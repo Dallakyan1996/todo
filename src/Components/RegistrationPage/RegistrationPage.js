@@ -3,9 +3,13 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { apiObject } from '../../service/API';
 import { Link } from 'react-router-dom';
-import './registration-page.css'
+import './registration-page.css';
+import DatePicker from "react-datepicker";
+import { useState } from 'react';
+import "react-datepicker/dist/react-datepicker.css";
 
 const RegistrationPage = () => {
+    const [startDate, setStartDate] = useState(new Date());
     return <div className="loginForm">
         <div className="registrationFormContainer">
             <div className="registrationFormWrapper">
@@ -28,7 +32,7 @@ const RegistrationPage = () => {
                     })}
                     onSubmit={({ email, firstName, lastName, birthDay, password, gender }, { setStatus, setSubmitting }) => {
                         setStatus();
-                        apiObject.registration(email, firstName, lastName, birthDay, password, gender)
+                        apiObject.registration(email, firstName, lastName, birthDay, gender, password)
                             .then(
                                 user => {
                                     console.log("okey")
@@ -64,14 +68,14 @@ const RegistrationPage = () => {
                                 <ErrorMessage name="birthDay" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="password">Password</label>
-                                <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
-                                <ErrorMessage name="password" component="div" className="invalid-feedback" />
-                            </div>
-                            <div className="form-group">
                                 <label htmlFor="gender">Gender</label>
                                 <Field name="gender" type="text" className={'form-control' + (errors.gender && touched.gender ? ' is-invalid' : '')} />
                                 <ErrorMessage name="gender" component="div" className="invalid-feedback" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="password">Password</label>
+                                <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
+                                <ErrorMessage name="password" component="div" className="invalid-feedback" />
                             </div>
                             <div className="form-group">
                                 <button type="submit" className="btn" disabled={isSubmitting}>Submmit</button>

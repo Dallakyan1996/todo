@@ -59,6 +59,10 @@ form {
     margin-bottom: 10px;
 }
 
+.css-b62m3t-container{
+    color: black;
+}
+
 .btn:focus {
     outline: none !important;
 }

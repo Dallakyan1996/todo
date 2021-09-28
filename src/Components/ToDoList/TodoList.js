@@ -1,5 +1,3 @@
-
-   
 import { useDispatch, useSelector } from "react-redux"
 import "../style/style.css"
 import AddTask from "../TaskInput/TaskInput"
@@ -19,6 +17,7 @@ const ToDoApp = () => {
     let completedTasks = state && state.filter(i => i.isCompleted)
     let quantityAllTasks = state.length;
     let quantityCompletedTasks = completedTasks.length;
+    const [dataIsReturned, setDataIsReturned] = useState(false)
     const dispatch = useDispatch();
     const getTasks = apiObject.getTasks;
     const postDelete = apiObject.postDelete;
@@ -35,7 +34,7 @@ const ToDoApp = () => {
                         data: data
                     }
                 })
-                // setLoader(false)
+                setDataIsReturned(true)
             });
     }, [])
     return (
@@ -46,7 +45,7 @@ const ToDoApp = () => {
             </div>
             <div className="container">
                 {
-                   
+                    dataIsReturned &&
                     <div>
                         {state && state.map((v, i) => <div key={v._id} className="tasksDiv">
                             <input id={v._id} className="checkBoxInput" defaultChecked={v.isCompleted ? true : false} type="checkBox" onChange={(e) => {

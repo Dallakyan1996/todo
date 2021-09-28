@@ -1,12 +1,19 @@
 import { BehaviorSubject } from 'rxjs';
 import { handleResponse } from '../helpers/hendle-response';
+import { history } from '../helpers/history';
 
 const currentUserSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('toDoCurrentUser')));
 
-let acces_token = JSON.parse(localStorage.getItem('toDoCurrentUser')) && JSON.parse(localStorage.getItem('toDoCurrentUser')).token.toString()
+let acces_token = null
 
 
 const postTask = (task, id) => {
+    if (JSON.parse(localStorage.getItem('toDoCurrentUser')) !== null) {
+        acces_token = JSON.parse(localStorage.getItem('toDoCurrentUser')).token.toString()
+    }
+    else {
+        history.push('/')
+    }
     return fetch('http://localhost:3001/add-task', {
         method: "POST",
         headers: {
@@ -28,6 +35,12 @@ const postTask = (task, id) => {
 }
 
 const postDelete = (_id) => {
+    if (JSON.parse(localStorage.getItem('toDoCurrentUser')) !== null) {
+        acces_token = JSON.parse(localStorage.getItem('toDoCurrentUser')).token.toString()
+    }
+    else {
+        history.push('/')
+    }
     return fetch('http://localhost:3001/delete-task', {
         method: "POST",
         headers: {
@@ -39,6 +52,12 @@ const postDelete = (_id) => {
 }
 
 const postChecked = (_id, isChecked) => {
+    if (JSON.parse(localStorage.getItem('toDoCurrentUser')) !== null) {
+        acces_token = JSON.parse(localStorage.getItem('toDoCurrentUser')).token.toString()
+    }
+    else {
+        history.push('/')
+    }
     return fetch('http://localhost:3001/complete-task', {
         method: "POST",
         headers: {
@@ -50,6 +69,12 @@ const postChecked = (_id, isChecked) => {
 }
 
 const postEditText = (_id, newText) => {
+    if (JSON.parse(localStorage.getItem('toDoCurrentUser')) !== null) {
+        acces_token = JSON.parse(localStorage.getItem('toDoCurrentUser')).token.toString()
+    }
+    else {
+        history.push('/')
+    }
     return fetch('http://localhost:3001/edit-task', {
         method: "POST",
         headers: {
@@ -61,6 +86,12 @@ const postEditText = (_id, newText) => {
 }
 
 const getTasks = () => {
+    if (JSON.parse(localStorage.getItem('toDoCurrentUser')) !== null) {
+        acces_token = JSON.parse(localStorage.getItem('toDoCurrentUser')).token.toString()
+    }
+    else {
+        history.push('/')
+    }
     return fetch('http://localhost:3001/task-list', {
         method: "GET",
         headers: {
@@ -104,6 +135,12 @@ function registration(email, firstName, lastName, birthDay, password, gender) {
 }
 
 const getClearCompleted = () => {
+    if (JSON.parse(localStorage.getItem('toDoCurrentUser')) !== null) {
+        acces_token = JSON.parse(localStorage.getItem('toDoCurrentUser')).token.toString()
+    }
+    else {
+        history.push('/')
+    }
     return fetch('http://localhost:3001/clear-completed', {
         method: "GET",
         headers: {
