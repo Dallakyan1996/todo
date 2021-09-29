@@ -4,8 +4,7 @@ import { Route } from 'react-router-dom'
 import ToDoApp from "../ToDoList/TodoList";
 const HomePage = () => {
     return <div className="homePageWrapper">
-        <SideBar />
-        <Route path="/todo" component={ToDoApp} />
+     
     </div>
 }
 

@@ -5,14 +5,8 @@ import { FaTrashAlt, FaPen, FaCheck } from 'react-icons/fa';
 import ToDoFooter from "../ToDoFooter/ToDoFooter";
 import { useEffect, useState } from "react";
 import { apiObject } from "../../service/API";
-import { Link } from "@material-ui/core";
-import { history } from "../../helpers/history";
 
 const ToDoApp = () => {
-    const logout = () => {
-        apiObject.logout();
-        history.push('/login');
-    }
     let state = useSelector((state) => state)
     let completedTasks = state && state.filter(i => i.isCompleted)
     let quantityAllTasks = state.length;
@@ -100,7 +94,6 @@ const ToDoApp = () => {
                         <ToDoFooter quantityAllTasks={quantityAllTasks} completedTasks={completedTasks} quantityCompletedTasks={quantityCompletedTasks} />
                     </div>
                 }
-                <Link to="/login" onClick={logout}>logOut</Link>
             </div>
         </>
     )

@@ -8,6 +8,7 @@ import { PrivateRoute } from './PrivateRoute/PrivateRoute';
 import RegistrationPage from './Components/RegistrationPage/RegistrationPage';
 import './App.css';
 import HomePage from './Components/HomePage/HomePage';
+import SideBar from './Components/SideBar/SideBar';
 
 class App extends React.Component {
   constructor(props) {
@@ -22,16 +23,12 @@ class App extends React.Component {
     apiObject.currentUser.subscribe(x => this.setState({ currentUser: x }));
   }
 
-  logout() {
-    apiObject.logout();
-    history.push('/login');
-  } 
-
   render() {
     return (
       <Router history={history}>
         <div className="App">
-          <PrivateRoute path="/" component={HomePage} />
+          {this.state.currentUser ? <SideBar /> : null}
+          <Route path="/todo" component={ToDoApp} />
           <Route path="/login" component={LoginPage} />
           <Route path="/registration-page" component={RegistrationPage} />
         </div>
