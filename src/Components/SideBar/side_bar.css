@@ -1,0 +1,43 @@
+.sideBarWrapper {
+    display: flex;
+    height: 100%;
+    background-color: #08233c;
+    width: 20rem;
+    padding-top: 5px;
+}
+
+.sideBarWrapper ul {
+    color: white;
+}
+
+ul {
+    padding: 0;
+    width: 100%;
+}
+
+li {
+    color: white;
+    font-size: 17px;
+}
+
+ul div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    padding-left: 2rem;
+}
+
+ul div:hover {
+    background-color: #25435fc0;
+    cursor: pointer;
+}
+
+.active{
+    background-color: #25435fc0;
+}
+
+a:active{
+    text-decoration: none;
+}
+/* .sideBarContent {} */

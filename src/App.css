@@ -6,10 +6,29 @@ html {
 body {
   width: 100%;
   height: 100%;
-  background: #D54C76;
 }
 
 .App {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
+}
+
+.loginPage {
+  width: 100%;
+  height: 100%;
+  background: #D54C76;
+}
+
+.sideBarContent {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  flex: 2;
 }

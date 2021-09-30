@@ -33,6 +33,7 @@ const ToDoApp = () => {
     }, [])
     return (
         <>
+        <div>
             <div className="toDoDiv">TO-DO LIST</div>
             <div>
                 <AddTask />
@@ -94,6 +95,7 @@ const ToDoApp = () => {
                         <ToDoFooter quantityAllTasks={quantityAllTasks} completedTasks={completedTasks} quantityCompletedTasks={quantityCompletedTasks} />
                     </div>
                 }
+            </div>
             </div>
         </>
     )

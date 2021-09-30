@@ -1,0 +1,13 @@
+.headerWrapper {
+    height: 5rem;
+    width: 100%;
+    background-color:#08233c;
+}
+
+.appName{
+    color: white;
+}
+
+ul li {
+    list-style: none;
+}

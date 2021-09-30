@@ -1,7 +1,13 @@
+import "./header.css"
+
 const Header = () => {
     return <>
         <div className="headerWrapper">
-            <span className="appName"></span>
+            <div className="headerContnet">
+                <span className="appName">TO-DO APP</span>
+            </div>
         </div>
     </>
 }
+
+export default Header;
