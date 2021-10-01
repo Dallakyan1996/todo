@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { apiObject } from "../../service/API";
 
 const ToDoFooter = (props) => {
-    let state = useSelector(state => state);
-    let pendingTasks = state.filter(i => !i.isCompleted);
+    let state = useSelector(state => state.tasksReducer);
+    let pendingTasks = state.tasks.filter(i => !i.isCompleted);
     const getClearCompleted = apiObject.getClearCompleted
 
 

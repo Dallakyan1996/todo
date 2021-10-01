@@ -120,11 +120,11 @@ function login(email, password) {
         });
 }
 
-function registration(email, firstName, lastName, birthDay, password, gender) {
+function registration(email, firstName, lastName, birthDay,  gender, password,) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, firstName, lastName, birthDay, password, gender })
+        body: JSON.stringify({ email, firstName, lastName, birthDay, gender, password })
     };
 
     return fetch('http://localhost:3001/auth/registration', requestOptions)

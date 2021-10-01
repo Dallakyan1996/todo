@@ -6,9 +6,9 @@ import jwt_decode from "jwt-decode";
 
 const AddTask = () => {
     const [text, setText] = useState("")
-    let state = useSelector((state) => state)
+    let state = useSelector((state) => state.tasksReducer)
     const dispatch = useDispatch();
-    const userID =  JSON.parse(localStorage.getItem('toDoCurrentUser')).token
+    const userID = JSON.parse(localStorage.getItem('toDoCurrentUser')).token
     const decodedID = jwt_decode(userID);
     const postTask = apiObject.postTask
     return <div className="textInputDiv">
@@ -24,13 +24,13 @@ const AddTask = () => {
                                 dispatch({
                                     type: 'ADD-TASK',
                                     payload: [
-                                        ...state,
-                                        state.push({
+                                        ...state.tasks,
+                                        {
                                             _id: res,
                                             taskText: text,
                                             isCompleted: false,
                                             edit: false
-                                        })
+                                        }
                                     ]
                                 })
                             }
@@ -40,7 +40,7 @@ const AddTask = () => {
                 }}>Add Task</button>
             </Form>
         </Formik>
-    </div>
+    </div >
 }
 
 export default AddTask;

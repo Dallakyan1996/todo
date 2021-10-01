@@ -15,9 +15,9 @@ form {
     height: 45rem;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: #868080;
     /* background: #352c2cd6; */
-    background: linear-gradient( 180deg, #141e5a9c, #272F5D);
+    background: linear-gradient( 180deg, #36373a9c, #1b1b1b);
     box-shadow: 0 15px 35px rgb(0 0 0 / 80%);
 }
 
@@ -72,5 +72,5 @@ form {
 }
 
 .registrationPage a {
-    color: white;
+    color: #868080;
 }

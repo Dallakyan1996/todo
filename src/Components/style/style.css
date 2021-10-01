@@ -134,3 +134,11 @@
 .editBtnPen {
     color: rgb(32, 93, 206)
 }
+
+.toDoApp {
+    height: fit-content;
+    min-height: 310px;
+    background: linear-gradient( 180deg, #5178ec9c, #f7f2f7);
+    box-shadow: 0 15px 35px rgb(0 0 0 / 80%);
+    width: 60rem;   
+}

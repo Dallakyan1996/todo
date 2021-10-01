@@ -1,9 +1,9 @@
 .sideBarWrapper {
     display: flex;
     height: 100%;
-    background-color: #08233c;
+    background-color: #0c1013;
     width: 20rem;
-    padding-top: 5px;
+    padding-top: 20px;
 }
 
 .sideBarWrapper ul {
@@ -17,27 +17,91 @@ ul {
 
 li {
     color: white;
-    font-size: 17px;
+    font-size: 14px;
 }
 
 ul div {
     width: 100%;
     display: flex;
     align-items: center;
-    height: 5rem;
-    padding-left: 2rem;
+    height: 3.5rem;
 }
 
 ul div:hover {
-    background-color: #25435fc0;
+    background-color: #444e55;
     cursor: pointer;
 }
 
-.active{
-    background-color: #25435fc0;
+a:active a path {
+    color: white  !important;
 }
 
-a:active{
+.active {
+    background-color: #444e55;
+    color: white;
+}
+
+a:active {
+    text-decoration: none;
+    color: white;
+}
+
+a:active a span {
+    text-decoration: none;
+    color: white;
+}
+
+a:link {
     text-decoration: none;
 }
+
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+a {
+    width: 100%;
+    height: 100%;
+    padding-left: 2rem;
+    /* align-items: center; */
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+        color: rgba(124, 120, 120, 0.795);
+    padding-left: 12px;
+}
+
+a span {
+    color: rgba(124, 120, 120, 0.795);
+    padding-left: 12px;
+}
+
+a:hover, a.active span, a.active path {
+    text-decoration: none;
+    color: white;
+}
+
+ul div:hover a span {
+    color: white;
+    cursor: pointer;
+}
+
+ul div:hover a path {
+    color: white;
+    cursor: pointer;
+}
+
+ul li {
+    list-style: none;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    width: 100%;
+}
+
+a path {
+    color: rgba(124, 120, 120, 0.795);
+}
+
 /* .sideBarContent {} */

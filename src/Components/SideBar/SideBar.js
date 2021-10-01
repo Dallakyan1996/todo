@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { apiObject } from "../../service/API";
 import { history } from "../../helpers/history";
+import { FaUserCircle, FaEnvelope, FaTasks, FaSignInAlt } from "react-icons/fa";
 import "./side_bar.css"
 
 const SideBar = () => {
@@ -16,29 +17,34 @@ const SideBar = () => {
                     <div>
                         <li>
                             <NavLink exact activeClassName="active" to="/user-profile">
-                                User Profile
+                                <FaUserCircle />
+                                <span>
+                                    User Profile
+                                </span>
                             </NavLink>
                         </li>
                     </div>
                     <div>
                         <li>
                             <NavLink exact activeClassName="active" to="/messages">
-                                Messages
+                                <FaEnvelope />
+                                <span>
+                                    Messages
+                                </span>
                             </NavLink>
                         </li>
                     </div>
                     <div>
                         <li>
                             <NavLink exact activeClassName="active" to="/todo">
-                                ToDo
+                                <FaTasks />
+                                <span>
+                                    ToDo
+                                </span>
                             </NavLink>
                         </li>
                     </div>
-                    <div onClick={logout}>
-                        <li>
-                            <NavLink exact activeClassName="active" to="/login">logOut</NavLink>
-                        </li>
-                    </div>
+        
                 </ul>
             </div>
         </div>

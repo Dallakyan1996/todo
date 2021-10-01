@@ -15,10 +15,14 @@ form {
     height: 70rem;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: #868080;
     /* background: #352c2cd6; */
-    background: linear-gradient( 180deg, #141e5a9c, #272F5D);
+    background: linear-gradient( 180deg, #36373a9c, #1b1b1b);
     box-shadow: 0 15px 35px rgb(0 0 0 / 80%);
+}
+
+.registrationPage a {
+    color: #868080 !important;
 }
 
 .registrationFormWrapper {
@@ -50,7 +54,7 @@ form {
 }
 
 .btn {
-    background-color: #D54C76;
+    background-color: #3781e6;
     transition-duration: 0.4s;
     /* color: black; */
     border-radius: 50px;
@@ -59,7 +63,7 @@ form {
     margin-bottom: 10px;
 }
 
-.css-b62m3t-container{
+.css-b62m3t-container {
     color: black;
 }
 
@@ -72,11 +76,11 @@ form {
     height: 100%;
     display: flex;
     justify-content: center;
-    background: #D54C76;
+    background: #4a4647;
     align-items: center;
 }
 
 .registrationPage a {
-    color: white;
+    color: #868080;
     /* margin-bottom: ; */
 }

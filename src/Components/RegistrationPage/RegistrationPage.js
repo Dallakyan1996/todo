@@ -19,18 +19,18 @@ const RegistrationPage = () => {
                         firstName: "",
                         lastName: "",
                         birthDay: "",
-                        password: "",
-                        gender: ""
+                        gender: "",
+                        password: ""
                     }}
                     validationSchema={Yup.object().shape({
                         email: Yup.string().required('Email e is required'),
                         firstName: Yup.string().required('Firstname is required'),
                         lastName: Yup.string().required('Lastname e is required'),
                         birthDay: Yup.string().required('Birthday is required'),
-                        password: Yup.string().required('Password e is required'),
-                        gender: Yup.string().required('Gender is required')
+                        gender: Yup.string().required('Gender is required'),
+                        password: Yup.string().required('Password e is required')
                     })}
-                    onSubmit={({ email, firstName, lastName, birthDay, password, gender }, { setStatus, setSubmitting }) => {
+                    onSubmit={({ email, firstName, lastName, birthDay, gender, password }, { setStatus, setSubmitting }) => {
                         setStatus();
                         apiObject.registration(email, firstName, lastName, birthDay, gender, password)
                             .then(
