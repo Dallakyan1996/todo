@@ -26,10 +26,11 @@
 
 .textInput {
     width: 45rem;
+    border: solid;
     border-width: 1px;
     font-size: 20px;
     padding: 10px;
-    border: none;
+    border-radius: 8px;
 }
 
 .taskTextCompleted {
@@ -75,10 +76,14 @@
     font-size: 1.5rem;
     color: white;
     font-weight: 600;
+    height: 5rem;
+    border-radius: 9px;
 }
 
 .form {
     display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .footerDiv {
@@ -140,5 +145,5 @@
     min-height: 310px;
     background: linear-gradient( 180deg, #5178ec9c, #f7f2f7);
     box-shadow: 0 15px 35px rgb(0 0 0 / 80%);
-    width: 60rem;   
+    width: 60rem;
 }

@@ -10,6 +10,7 @@ import './App.css';
 import HomePage from './Components/HomePage/HomePage';
 import SideBar from './Components/SideBar/SideBar';
 import Header from './Components/Header/Header';
+import UserProfile from './Components/UserProfile/UserProfileComponent';
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -37,6 +38,7 @@ class App extends React.Component {
                   <SideBar />
                   <div className="content">
                     <Route path="/todo" component={ToDoApp} />
+                    <Route exact path="/" component={UserProfile} />
                   </div>
                 </div>
               </> :

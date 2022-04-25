@@ -16,7 +16,7 @@ const SideBar = () => {
                 <ul>
                     <div>
                         <li>
-                            <NavLink exact activeClassName="active" to="/user-profile">
+                            <NavLink exact activeClassName="active" to="/">
                                 <FaUserCircle />
                                 <span>
                                     User Profile

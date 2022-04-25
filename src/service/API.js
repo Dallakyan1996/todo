@@ -115,6 +115,7 @@ function login(email, password) {
         .then(handleResponse)
         .then(user => {
             localStorage.setItem('toDoCurrentUser', JSON.stringify(user));
+            console.log(user)
             currentUserSubject.next(user);
             return user;
         });
